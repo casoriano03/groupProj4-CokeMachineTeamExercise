@@ -10,7 +10,7 @@ function buyCoke() {
         var changeInCoins = segregateChangeInCoins(change)
         checkCokeInStore()
         addCoinsInMachine(coinsPaid)
-        coinsReturned=changeInCoins
+        collectedChange(changeInCoins)
         valueFromCoinCounts(changeInCoins)
         reduceCoinsInMachine(changeInCoins)
         coinsInserted = [0, 0, 0, 0];
@@ -117,5 +117,19 @@ function reduceCoinsInMachine(changeInCoins) {
     }
 
     coinsInMachine = [remainingOnes, remainingFives, remainingTens, remainingTwenties]
+    updateView();
+}
+
+function collectedChange(changeInCoins) {
+    var ones = coinsReturned[0] + changeInCoins[0]
+    var fives = coinsReturned[1] + changeInCoins[1]
+    var tens = coinsReturned[2] + changeInCoins[2]
+    var twenties = coinsReturned[3] + changeInCoins[3]
+    var collectedChangeReturned = [ones, fives, tens, twenties]
+    coinsReturned=collectedChangeReturned
+}
+
+function takeCoke() {
+    isCokeInDelivery=false
     updateView();
 }

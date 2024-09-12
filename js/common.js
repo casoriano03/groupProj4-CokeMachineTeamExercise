@@ -1,5 +1,5 @@
 function valueFromCoinCounts(coinCounts) {
-    return coinCounts[0]
+    return  coinCounts[0]
         + coinCounts[1] * 5
         + coinCounts[2] * 10
         + coinCounts[3] * 20;
